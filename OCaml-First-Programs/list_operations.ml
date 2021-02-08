@@ -33,6 +33,12 @@ let rec has x lst =
 let rec empty lst = 
     lst = []
 
+(** [append lst1 lst2] is a list constructed by appending [lst1] in front of [lst2] *)
+let rec append lst1 lst2 = 
+    match lst1 with
+    | [] -> lst2
+    | h::t -> h::(append t lst2)
+
 (** [index n lst] is the n-th element of [lst]. Raises: [Invalid_argument "n"] unless [n] is greater than 0 and less than the length of [lst]. *)
 let rec index n lst = 
     if n < 0 then
