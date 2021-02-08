@@ -4,6 +4,12 @@ let rec sum lst =
     | [] -> 0
     | h::t -> h + sum t
 
+(** [sum_tr lst] is the sum of the elements of [lst] computed using tail recursion. *)   
+let rec sum_tr ?(acc = 0) lst =
+   match lst with
+   | [] -> acc 
+   | h::t -> sum_tr ~acc:(acc + h) t
+
 (** [length lst] is the length of [lst]. *)
 let rec length lst =
     match lst with
